@@ -1,0 +1,22 @@
+:root {
+	font-family: sans-serif;
+}
+
+@media print {
+	.noprint {
+		display: none;
+	}
+}
+
+label {
+	width: 6ch;
+	display: inline-block;
+	text-align: right;
+}
+
+svg {
+	overflow: visible;
+	stroke-width: 0.5;
+	stroke: black;
+	fill: none;
+}
