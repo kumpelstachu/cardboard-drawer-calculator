@@ -7,7 +7,7 @@ export function createBox(size: { x: number; y: number; z: number }, scale = 1) 
 	size.z *= scale
 
 	const width = size.x + size.y * 2 + thickness * 2
-	const height = size.z + size.y * 2 + thickness
+	const height = size.z + size.y * 2 + thickness * 3
 	const svg = svgCreate('svg')
 	svg.setAttribute('width', `${width}mm`)
 	svg.setAttribute('height', `${height}mm`)
@@ -17,13 +17,13 @@ export function createBox(size: { x: number; y: number; z: number }, scale = 1) 
 		// left side
 		createRect({
 			x: 0,
-			y: size.y,
+			y: size.y + thickness,
 			width: size.y,
 			height: size.z,
 		}),
 		createRect({
 			x: size.y,
-			y: size.y,
+			y: size.y + thickness,
 			width: thickness,
 			height: size.z,
 		}),
@@ -31,37 +31,49 @@ export function createBox(size: { x: number; y: number; z: number }, scale = 1) 
 		// right side
 		createRect({
 			x: size.x + size.y + thickness * 2,
-			y: size.y,
+			y: size.y + thickness,
 			width: size.y,
 			height: size.z,
 		}),
 		createRect({
 			x: size.x + size.y + thickness,
-			y: size.y,
+			y: size.y + thickness,
 			width: thickness,
 			height: size.z,
 		}),
 
 		// top side
 		createRect({
-			x: size.y + thickness,
+			x: size.y,
 			y: 0,
-			width: size.x,
+			width: size.x + thickness * 2,
 			height: size.y,
+		}),
+		createRect({
+			x: size.y,
+			y: size.y,
+			width: size.x + thickness * 2,
+			height: thickness,
 		}),
 
 		// bottom side
 		createRect({
-			x: size.y - thickness * 2,
-			y: size.y + size.z,
-			width: size.x + thickness * 6,
+			x: size.y - thickness,
+			y: size.y + size.z + thickness * 2,
+			width: size.x + thickness * 4,
 			height: size.y + thickness,
+		}),
+		createRect({
+			x: size.y - thickness,
+			y: size.y + size.z + thickness,
+			width: size.x + thickness * 4,
+			height: thickness,
 		}),
 
 		// center
 		createRect({
 			x: size.y + thickness,
-			y: size.y,
+			y: size.y + thickness,
 			width: size.x,
 			height: size.z,
 		})
