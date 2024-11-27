@@ -36,14 +36,14 @@ function recreateBox() {
 	info.textContent = `(total) width: ${svgWidth}; height: ${svgHeight}`
 	info.classList.add('noprint')
 
-	const text = document.createElement('p')
+	const text = document.createElement('span')
 	text.textContent = `width: ${width}; height: ${height}; depth: ${depth}`
-	text.addEventListener('click', () => {
-		text.style.opacity = text.classList.toggle('noprint') ? '0.5' : '1'
-	})
+
+	const container = document.createElement('div')
+	container.append(svg, text)
 
 	output.innerHTML = ''
-	output.append(info, text, svg)
+	output.append(info, container)
 
 	changeHash(`#${[width, height, depth]}`)
 }

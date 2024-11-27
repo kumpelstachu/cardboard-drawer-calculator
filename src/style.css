@@ -20,3 +20,19 @@ svg {
 	stroke: black;
 	fill: none;
 }
+
+output {
+	div {
+		position: relative;
+		width: fit-content;
+		height: fit-content;
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+		}
+	}
+}
