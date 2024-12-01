@@ -3,6 +3,10 @@
 }
 
 @media print {
+	body {
+		margin: 0;
+	}
+
 	.noprint {
 		display: none;
 	}
@@ -11,17 +15,21 @@
 label {
 	width: 6ch;
 	display: inline-block;
-	text-align: right;
+
+	&:not(:first-of-type) {
+		text-align: right;
+	}
 }
 
 svg {
 	overflow: visible;
-	stroke-width: 0.5;
-	stroke: black;
-	fill: none;
 }
 
 output {
+	button {
+		margin: 0.5rem 0.5rem 0.5rem 0;
+	}
+
 	div {
 		position: relative;
 		width: fit-content;

@@ -1,7 +1,10 @@
 import { svgCreate } from './utils'
 
-export function createBox(size: { x: number; y: number; z: number }, scale = 1) {
-	const thickness = 5 * scale
+export function createBox(
+	size: { x: number; y: number; z: number; thickness?: number },
+	scale = 1
+) {
+	const thickness = (size.thickness ?? 5) * scale
 	size.x *= scale
 	size.y *= scale
 	size.z *= scale
@@ -88,5 +91,8 @@ function createRect(options: { x: number; y: number; width: number; height: numb
 	rect.setAttribute('y', `${options.y}`)
 	rect.setAttribute('width', `${options.width}`)
 	rect.setAttribute('height', `${options.height}`)
+	rect.setAttribute('stroke-width', '0.3')
+	rect.setAttribute('stroke', 'black')
+	rect.setAttribute('fill', 'none')
 	return rect
 }
